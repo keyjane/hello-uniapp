@@ -117,18 +117,13 @@
 						name: "Tag 标签",
 						url: "tag"
 					}
-				]
+				],
+                navigateFlag: false
 			};
 		},
 		onLoad() {
-			// #ifdef APP-PLUS
-			plus.nativeUI.showWaiting('加载中……');
-			// #endif
 		},
 		onReady() {
-			// #ifdef APP-PLUS
-			plus.nativeUI.closeWaiting();
-			// #endif
 		},
 		onShareAppMessage() {
 			return {
@@ -143,9 +138,16 @@
 		},
 		methods: {
 			goDetailPage(path) {
+                if (this.navigateFlag) {
+                    return;
+                }
+                this.navigateFlag = true;
 				uni.navigateTo({
 					url: '/pages/extUI/' + path + '/' + path
 				});
+                setTimeout(() => {
+                    this.navigateFlag = false;
+                }, 200)
 			}
 		}
 	}
