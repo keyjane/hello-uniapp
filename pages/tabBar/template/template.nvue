@@ -55,6 +55,12 @@
                                 url: 'nav-search-input'
                             },
                             // #endif
+							// #ifdef APP-PLUS
+							{
+							    name: '模糊效果导航栏',
+							    url: 'nav-blur'
+							},
+							// #endif
                             // #ifdef APP-PLUS || H5 || MP-ALIPAY
                             {
                                 name: '透明渐变样式',
